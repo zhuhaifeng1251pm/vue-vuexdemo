@@ -1,28 +1,22 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="app">
+    <button @click="$store.commit('reduces')">-</button>
+    <span>{{$store.state.count.count}}</span>
+    <button @click="$store.commit('increment')">+</button>
+     <Home/>
+    <router-view></router-view>
+   
   </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Home from "./components/Home";
+//使用this.$store.state.count访问 store 中的数据
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  name:'app',
+  components:{
+    Home
+  },mounted(){
+    console.log(this.$store.state.count.count)
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
