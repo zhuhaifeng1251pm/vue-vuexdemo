@@ -1,10 +1,12 @@
 import Vuex from "vuex";
 import Vue from "vue";
 Vue.use(Vuex);
-import {count} from '../module/count'
+import count from '../module/count'
+import number from '../module/number'
 const store = new Vuex.Store({
     modules: {
-      count:count
+        count: count,
+        number:number
   }
 });
 
